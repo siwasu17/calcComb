@@ -49,9 +49,9 @@ public class MainActivity extends ActionBarActivity {
         Button btn = (Button)findViewById(R.id.btnClac);
         btn.setOnClickListener(new View.OnClickListener(){
 
-            //順列
+            //順列 (nPr)
             public long permutation(int n,int r){
-                // nPr
+
                 if(n < 0){
                     return 0;
                 }
@@ -63,9 +63,9 @@ public class MainActivity extends ActionBarActivity {
                 return ret;
             }
 
-            //組み合わせ
-            public long factrial(int n,int r){
-                //nCr = nPr / r!
+            //組み合わせ (nCr = nPr / r!)
+            public long combination(int n,int r){
+
                 return this.permutation(n,r) / this.permutation(r,r);
             }
 
@@ -86,25 +86,29 @@ public class MainActivity extends ActionBarActivity {
                 switch(idx){
                     case 0:
                         //単勝
-                        result = this.factrial(allNum,1);
+                        result = this.combination(allNum,1);
                         per = 1 / (double)result;
                         break;
                     case 1:
                         //複勝
-                        result = this.factrial(allNum,1);
+                        result = this.combination(allNum,1);
                         per = 3 / (double)result;
                         break;
                     case 2:
                         //枠複(枠連)
-                        //TODO: 後で実装
+                        // 枠の組み合わせは 8枠なら
+                        // 8C2  + 8 通り (単一の枠内の場合、逆パターンはないので)
+                        result = this.combination(allNum/2,2) + (allNum/2);
+                        per = 1 / (double)result;
                         break;
                     case 3:
                         //枠単
-                        //TODO: 後で実装
+                        result = this.permutation(allNum/2,2) + (allNum/2);
+                        per  = 1 / (double)result;
                         break;
                     case 4:
                         //馬複(馬連)
-                        result = this.factrial(allNum,2);
+                        result = this.combination(allNum,2);
                         per = 1 / (double)result;
                         break;
                     case 5:
@@ -114,12 +118,12 @@ public class MainActivity extends ActionBarActivity {
                         break;
                     case 6:
                         //ワイド
-                        result = this.factrial(allNum,2);
+                        result = this.combination(allNum,2);
                         per = 3 / (double)result;
                         break;
                     case 7:
                         //三連複
-                        result = this.factrial(allNum,3);
+                        result = this.combination(allNum,3);
                         per = 1 / (double)result;
                         break;
                     case 8:
