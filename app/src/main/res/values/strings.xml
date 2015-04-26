@@ -1,12 +1,26 @@
 <resources>
-    <string name="app_name">calcComb</string>
+    <string name="app_name">馬券確率シミュレーター</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="all_num">全体</string>
-    <string name="select_num">選択</string>
+    <string name="all_num">出馬数</string>
+    <string name="select_num">買い方</string>
     <string name="calc">計算</string>
     <string name="result_title">組み合わせは...</string>
     <string name="result_pair">組</string>
     <string name="result_default">0</string>
+    <string name="result_per_default">0.00</string>
+    <string name="result_per_unit">%</string>
+
+    <string-array name="bill_style_array">
+        <item>単勝</item>
+        <item>複勝</item>
+        <item>枠複(枠連)</item>
+        <item>枠単</item>
+        <item>馬複(馬連)</item>
+        <item>馬単</item>
+        <item>ワイド</item>
+        <item>三連複</item>
+        <item>三連単</item>
+    </string-array>
 </resources>
